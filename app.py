@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, request
 app = Flask(__name__)
- 
+ print("hello")
  
 @app.route('/success/<name>')
 def success(name):
@@ -10,8 +10,10 @@ def success(name):
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
+        print("hello")
         user = request.form['nm']
         return redirect(url_for('success', name=user))
+   
     else:
         user = request.args.get('nm')
         return redirect(url_for('success', name=user))
